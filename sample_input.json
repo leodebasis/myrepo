@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "name": "Apple",
+            "value": 10
+        },
+        {
+            "name": "Banana",
+            "value": 20
+        },
+        {
+            "name": "Orange",
+            "value": 30
+        }
+    ]
+}
