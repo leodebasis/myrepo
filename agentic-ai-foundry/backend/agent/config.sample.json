@@ -1,0 +1,36 @@
+{
+  "llm": {
+    "provider": "azure_openai",
+    "azure_endpoint": "https://example-resource.openai.azure.com/",
+    "deployment": "gpt-4o-mini",
+    "api_version": "2024-07-01-preview",
+    "api_key_env": "AZURE_OPENAI_API_KEY"
+  },
+  "agents": [
+    {
+      "name": "Email Communicator Agent",
+      "slug": "email-communicator-agent",
+      "description": "Drafts and sends emails with attachments, status updates, and triages replies.",
+      "system_message": "You are an agent that composes and sends concise, professional emails.",
+      "templates": {
+        "email_template": "backend/agent/templates/email.txt.j2"
+      },
+      "tools": [
+        {
+          "module": "agent.tool",
+          "class": "EmailTool",
+          "method": "send_email",
+          "kwargs": {
+            "smtp_host": "smtp.example.com",
+            "smtp_port": 587,
+            "smtp_user": "",
+            "smtp_password": "",
+            "sender": "noreply@example.com",
+            "dry_run": true
+          }
+        }
+      ]
+    }
+  ]
+}
+
